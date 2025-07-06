@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Works</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        body {
+            font-family: 'Handjet', sans-serif;
+        }
+        .work-item {
+            background-color: #1a202c;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .work-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.25rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white pt-16">
+
+    <nav class="fixed top-0 w-full bg-gray-800/70 p-4 flex justify-between items-center z-50 transition-all duration-300" id="main-navbar">
+        <div class="flex space-x-4">
+            <a href="https://github.com/BorobhaiRion?tab=repositories" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/rionkhan801/" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="flex space-x-4">
+            <a href="index.html" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors">Home</a>
+            <a href="about.html" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors">About</a>
+        </div>
+    </nav>
+
+    <div id="preloader">
+        <div class="flex flex-col items-center justify-center">
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <div id="content" class="hidden relative z-10">
+        <div class="container mx-auto p-4">
+            <h1 class="text-4xl font-bold text-center mb-8">My Works</h1>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="work-item">
+                <a href="https://borobhairion.itch.io/beginner-worrior" target="_blank">
+                    <div class="w-full h-64 bg-cover bg-center rounded mb-4" style="background-image: url('assets/game.png');"></div>
+                    <h2 class="text-xl font-bold">Beginner Warrior (Game)</h2>
+                </a>
+            </div>
+                <div class="work-item">
+                <a href="https://borobhairion.github.io/photons--/" target="_blank">
+                    <div class="w-full h-64 bg-cover bg-center rounded mb-4" style="background-image: url('assets/photons.png');"></div>
+                    <h2 class="text-xl font-bold">Photons (Photography Website)</h2>
+                </a>
+            </div>
+                <!-- Add more work items here as needed -->
+            </div>
+        </div>
+    </div>
+
+    <canvas id="cmatrix-canvas" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+    <script src="scripts/cmatrix.js"></script>
+    <script>
+        window.cmatrixColor = '#4B0082'; // Dark purple for works page
+        window.cmatrixAlphabet = '.html .css .py .cpp .ts .png .txt .ini .js .cs'; // File extensions
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('main-navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                // Scrolling down
+                navbar.style.top = '-100px'; // Adjust this value based on your navbar height
+            } else {
+                // Scrolling up
+                navbar.style.top = '0';
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // Preloader script
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            const content = document.getElementById('content');
+            if (preloader) {
+                preloader.style.display = 'none';
+            }
+            if (content) {
+                content.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

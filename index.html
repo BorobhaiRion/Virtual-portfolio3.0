@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual-portfolio3.0</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        body {
+            font-family: 'Handjet', sans-serif;
+        }
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1a202c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .hidden {
+            display: none;
+        }
+
+        
+    </style>
+</head>
+<body class="bg-gray-900 text-white pt-16">
+
+    <nav class="fixed top-0 w-full bg-gray-800/70 p-4 flex justify-between items-center z-50 transition-all duration-300" id="main-navbar">
+        <div class="flex space-x-4">
+            <a href="https://github.com/BorobhaiRion?tab=repositories" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/rionkhan801/" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="flex space-x-4">
+            <a href="about.html" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors">About</a>
+            <a href="works.html" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors">Works</a>
+        </div>
+    </nav>
+
+    <div id="preloader">
+        <div class="flex flex-col items-center justify-center">
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <div id="content" class="hidden relative z-10">
+        <div class="container mx-auto p-4">
+            <div class="flex flex-col items-center">
+                <img src="assets/R1.jpg" id="user-image" class="img rounded-full h-48 w-48 border-4 border-purple-900">
+                <h1 class="text-4xl font-bold mt-4 glowing-text">Md Foize Khan Rion</h1>
+            </div>
+
+            <hr class="my-8 border-gray-700">
+
+            <div class="text-center max-w-3xl mx-auto hover-lift-section text-box-style">
+                <p class="text-xl">
+                    I am a passionate and dedicated developer eager to bring innovative solutions to the tech industry.
+                    With a solid foundation in programming languages such as Java, Python, CSS, C++, and JavaScript.
+                    I have honed my skills through various personal and academic projects. My keen interest in web and software development
+                    drives me to continuously learn and stay updated with the latest technologies.
+                    I am enthusiastic about securing an internship where I can apply my knowledge, collaborate with professionals, and contribute
+                    to impactful projects. Additionally,
+                    I am interested in gaining knowledge in public relations to effectively communicate and promote technological advancements.
+                    My goal is to leverage my technical skills, creativity, and PR knowledge to deliver exceptional results and grow as a developer.
+                </p>
+                <p class="mt-4 text-xl text-blue-300">Thank you</p>
+            </div>
+
+            <hr class="my-8 border-gray-700">
+
+            <div class="slider w-full overflow-hidden hover-lift-section">
+                <div class="slidet flex">
+                    <div class="slide mx-4 flex-shrink-0"><img src="assets/js.png" class="h-24 w-24" title="JavaScript"></div>
+                    <div class="slide mx-4 flex-shrink-0"><img src="assets/message.png" class="h-24 w-24" title="Message"></div>
+                    <div class="slide mx-4 flex-shrink-0"><img src="assets/c.png" class="h-24 w-24" title="C Language"></div>
+                    <div class="slide mx-4 flex-shrink-0"><img src="assets/github.png" class="h-24 w-24" title="GitHub"></div>
+                    <div class="slide mx-4 flex-shrink-0"><img src="assets/word.png" class="h-24 w-24" title="Word"></div>
+                    <div class="slide mx-4 flex-shrink-0"><img src="assets/excel.png" class="h-24 w-24" title="Excel"></div>
+                    <div class="slide mx-4 flex-shrink-0"><img src="assets/java.png" class="h-24 w-24" title="Java"></div>
+                    <div class="slide mx-4 flex-shrink-0"><img src="assets/python.png" class="h-24 w-24" title="Python"></div>
+                    <div class="slide mx-4 flex-shrink-0"><img src="assets/css-3.png" class="h-24 w-24" title="CSS3"></div>
+                    <div class="slide mx-4 flex-shrink-0"><img src="assets/html-5.png" class="h-24 w-24" title="HTML5"></div>
+                </div>
+            </div>
+
+            <hr class="my-8 border-gray-700">
+
+            <hr class="my-8 border-gray-700">
+
+            <div class="text-center hover-lift-section">
+                <h3 class="text-xl"> 01790799857  </h3>
+                <h4 class="text-xl" title="Email Address">EMAIL: <a href="mailto:rion801@gmail.com" class="text-blue-400 hover:text-blue-600">rion801@gmail.com</a></h4>
+                <div class="mt-2">
+                    <a href="https://borobhairion.github.io/photons--/" class="text-blue-400 hover:text-blue-600" title="Photography Website">Photography/Borobhairion</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/index.js"></script>
+    <canvas id="cmatrix-canvas" class="fixed top-0 left-0 w-full h-full"></canvas>
+    <script src="scripts/index.js"></script>
+    <canvas id="cmatrix-canvas" class="fixed top-0 left-0 w-full h-full"></canvas>
+    <script src="scripts/cmatrix.js"></script>
+    <script>
+        window.cmatrixColor = '#0F0'; // Green for index page
+        window.cmatrixAlphabet = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        document.addEventListener('DOMContentLoaded', function() {
+            const userImage = document.getElementById('user-image');
+            if (userImage) {
+                // Wait for the image to load to get accurate dimensions
+                userImage.onload = function() {
+                    const rect = userImage.getBoundingClientRect();
+                    window.userImageRect = {
+                        x: rect.left + window.scrollX,
+                        y: rect.top + window.scrollY,
+                        width: rect.width,
+                        height: rect.height
+                    };
+                    console.log('User image rect:', window.userImageRect);
+                };
+                // If image is already loaded (e.g., from cache)
+                if (userImage.complete) {
+                    const rect = userImage.getBoundingClientRect();
+                    window.userImageRect = {
+                        x: rect.left + window.scrollX,
+                        y: rect.top + window.scrollY,
+                        width: rect.width,
+                        height: rect.height
+                    };
+                    console.log('User image rect (complete):', window.userImageRect);
+                }
+            }
+        });
+
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('main-navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                // Scrolling down
+                navbar.style.top = '-100px'; // Adjust this value based on your navbar height
+            } else {
+                // Scrolling up
+                navbar.style.top = '0';
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // Preloader script
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            const content = document.getElementById('content');
+            if (preloader) {
+                preloader.style.display = 'none';
+            }
+            if (content) {
+                content.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

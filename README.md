@@ -1,2 +1,2 @@
-# Virtual-portfolio3.0
-this is where ill try to make a webpage for use as my portfolio.
+# Virtual-portfolio2.0
+This is where i experiment on making my own portfolio website.
