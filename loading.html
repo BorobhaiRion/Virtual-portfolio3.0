@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        #vanta-bg {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #98575f;
+            font-family: sans-serif;
+            font-size: 5em;
+        }
+    </style>
+</head>
+<body>
+    <div id="vanta-bg"></div>
+    <div class="loader" id="loader">1%</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.trunk.min.js"></script>
+    <script>
+        VANTA.TRUNK({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            backgroundAlpha: 1.00,
+            backgroundColor: 0x222222, // Converted from 2237478
+            color: 0x98575f,           // Converted from 9979487
+            spacing: 8.50,
+            chaos: 4.00
+        });
+
+        const loader = document.getElementById('loader');
+        let percent = 1;
+        const interval = setInterval(() => {
+            loader.textContent = `${percent}%`;
+            percent++;
+            if (percent > 100) {
+                clearInterval(interval);
+                const urlParams = new URLSearchParams(window.location.search);
+                const redirectPage = urlParams.get('page') || 'index.html';
+                window.location.href = `${redirectPage}?loaded=true`;
+            }
+        }, 20);
+    </script>
+</body>
+</html>

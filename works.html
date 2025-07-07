@@ -15,12 +15,32 @@
         body {
             font-family: 'Handjet', sans-serif;
         }
+        #vanta-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        #content {
+            position: relative;
+            z-index: 1;
+        }
+        .hover-lift-section {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .hover-lift-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
         .work-item {
-            background-color: #1a202c;
+            background-color: rgba(26, 32, 44, 0.1);
             padding: 1.5rem;
             border-radius: 0.5rem;
             margin-bottom: 1.5rem;
             text-align: center;
+            backdrop-filter: blur(5px);
         }
         .work-item img {
             max-width: 100%;
@@ -32,68 +52,167 @@
 </head>
 <body class="bg-gray-900 text-white pt-16">
 
-    <nav class="fixed top-0 w-full bg-gray-800/70 p-2 sm:p-4 flex justify-between items-center z-50 transition-all duration-300" id="main-navbar">
+    <div id="preloader" class="fixed inset-0 bg-gray-900 flex items-center justify-center z-50">
+        <div class="loader"></div>
+    </div>
+
+    <nav class="fixed top-0 w-full bg-gray-800/20 p-2 sm:p-4 flex justify-between items-center z-40 transition-all duration-300 backdrop-blur-sm" id="main-navbar">
         <div class="flex space-x-2 sm:space-x-4">
-            <a href="https://github.com/BorobhaiRion?tab=repositories" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/rionkhan801/" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/BorobhaiRion?tab=repositories" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/rionkhan801/" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300" target="_blank"><i class="fab fa-linkedin"></i></a>
         </div>
         <div class="flex space-x-4">
-            <a href="index.html" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors">Home</a>
-            <a href="about.html" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors">About</a>
+            <a href="index.html" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">Home</a>
+            <a href="about.html" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">About</a>
         </div>
     </nav>
 
-    <div id="preloader">
-        <div class="flex flex-col items-center justify-center">
-            <div class="loader"></div>
-        </div>
-    </div>
-
-    <div id="content" class="hidden relative z-10">
-        <div class="container mx-auto p-4 sm:px-6 lg:px-8">
-            <h1 class="text-3xl md:text-4xl font-bold text-center mb-8">My Works</h1>
+    <div id="content" class="hidden relative z-10 min-h-screen flex flex-col items-center justify-center">
+        <div class="container mx-auto p-4 sm:px-6 lg:px-8 max-w-4xl bg-gray-800/10 rounded-xl shadow-2xl backdrop-blur-sm">
+            <h1 class="text-3xl md:text-4xl font-bold text-center mb-8 text-purple-300">My Works</h1>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="work-item">
-                <a href="https://borobhairion.itch.io/beginner-worrior" target="_blank">
-                    <div class="w-full h-48 sm:h-56 md:h-64 bg-cover bg-center rounded mb-4" style="background-image: url('assets/game.png');"></div>
-                    <h2 class="text-xl font-bold">Beginner Warrior (Game)</h2>
-                </a>
-            </div>
-                <div class="work-item">
-                <a href="https://borobhairion.github.io/photons--/" target="_blank">
-                    <div class="w-full h-64 bg-cover bg-center rounded mb-4" style="background-image: url('assets/photons.png');"></div>
-                    <h2 class="text-xl font-bold">Photons (Photography Website)</h2>
-                </a>
-            </div>
+                <div class="work-item hover-lift-section">
+                    <a href="https://borobhaiRion.itch.io/beginner-worrior" target="_blank">
+                        <div class="w-full h-48 sm:h-56 md:h-64 bg-cover bg-center rounded-lg mb-4" style="background-image: url('assets/game.png');"></div>
+                        <h2 class="text-xl md:text-2xl font-bold text-blue-300">Beginner Warrior (Game)</h2>
+                    </a>
+                </div>
+                <div class="work-item hover-lift-section">
+                    <a href="https://borobhaiRion.github.io/photons--/" target="_blank">
+                        <div class="w-full h-48 sm:h-56 md:h-64 bg-cover bg-center rounded-lg mb-4" style="background-image: url('assets/photons.png');"></div>
+                        <h2 class="text-xl md:text-2xl font-bold text-blue-300">Photons (Photography Website)</h2>
+                    </a>
+                </div>
                 <!-- Add more work items here as needed -->
             </div>
         </div>
     </div>
 
-    <canvas id="cmatrix-canvas" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
-    <script src="scripts/cmatrix.js"></script>
+    <div id="vanta-bg"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
     <script>
-        window.cmatrixColor = '#4B0082'; // Dark purple for works page
-        window.cmatrixAlphabet = '.html .css .py .cpp .ts .png .txt .ini .js .cs'; // File extensions
-        let lastScrollTop = 0;
-        const navbar = document.getElementById('main-navbar');
+        let vantaEffect;
+        const colors = [
+            { bg: 0x0, fg: 0xFF55FF },
+            { bg: 0x3080f, fg: 0x3E8E8E },
+            { bg: 0x404040, fg: 0x606060 }
+        ];
+        let currentColorIndex = 0;
+        const transitionDuration = 1000; // 1 second for transition
+        const displayDuration = 6000; // 6 seconds for each color
 
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        function hexToRgb(hex) {
+            const r = (hex >> 16) & 0xFF;
+            const g = (hex >> 8) & 0xFF;
+            const b = hex & 0xFF;
+            return { r, g, b };
+        }
 
-            if (scrollTop > lastScrollTop) {
-                // Scrolling down
-                navbar.style.top = '-100px'; // Adjust this value based on your navbar height
-            } else {
-                // Scrolling up
-                navbar.style.top = '0';
+        function rgbToHex(r, g, b) {
+            return (r << 16) | (g << 8) | b;
+        }
+
+        function interpolateColor(color1, color2, factor) {
+            const rgb1 = hexToRgb(color1);
+            const rgb2 = hexToRgb(color2);
+
+            const r = Math.round(rgb1.r + factor * (rgb2.r - rgb1.r));
+            const g = Math.round(rgb1.g + factor * (rgb2.g - rgb1.g));
+            const b = Math.round(rgb1.b + factor * (rgb2.b - rgb1.b));
+
+            return rgbToHex(r, g, b);
+        }
+
+        function animateColorTransition(startTime, startColors, endColors) {
+            const currentTime = Date.now();
+            const elapsed = currentTime - startTime;
+            const factor = Math.min(elapsed / transitionDuration, 1);
+
+            if (vantaEffect) {
+                vantaEffect.setOptions({
+                    backgroundColor: interpolateColor(startColors.bg, endColors.bg, factor),
+                    color: interpolateColor(startColors.fg, endColors.fg, factor)
+                });
             }
-            lastScrollTop = scrollTop;
-        });
 
-        // Preloader script
-        window.addEventListener('load', function() {
+            if (factor < 1) {
+                requestAnimationFrame(() => animateColorTransition(startTime, startColors, endColors));
+            }
+        }
+
+        function cycleColors() {
+            const prevColorIndex = currentColorIndex;
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+            
+            const startColors = colors[prevColorIndex];
+            const endColors = colors[currentColorIndex];
+
+            animateColorTransition(Date.now(), startColors, endColors);
+            sessionStorage.setItem('vantaColorIndex', currentColorIndex);
+            sessionStorage.setItem('vantaColorTimestamp', Date.now());
+        }
+
+        function initVanta() {
+            let initialColorIndex = 0;
+            let initialTimestamp = Date.now();
+
+            const storedColorIndex = sessionStorage.getItem('vantaColorIndex');
+            const storedTimestamp = sessionStorage.getItem('vantaColorTimestamp');
+
+            if (storedColorIndex !== null && storedTimestamp !== null) {
+                initialColorIndex = parseInt(storedColorIndex);
+                initialTimestamp = parseInt(storedTimestamp);
+            }
+
+            currentColorIndex = initialColorIndex;
+
+            vantaEffect = VANTA.NET({
+                el: "#vanta-bg",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                points: 18.00,
+                maxDistance: 17.00,
+                spacing: 15.00,
+                backgroundAlpha: 1.00,
+                color: colors[currentColorIndex].fg,
+                backgroundColor: colors[currentColorIndex].bg
+            });
+
+            const elapsedTime = Date.now() - initialTimestamp;
+            const remainingTime = displayDuration - (elapsedTime % displayDuration);
+            setTimeout(() => {
+                cycleColors();
+                setInterval(cycleColors, displayDuration);
+            }, remainingTime);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initVanta();
+
+            let lastScrollTop = 0;
+            const navbar = document.getElementById('main-navbar');
+
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop > lastScrollTop) {
+                    // Scrolling down
+                    navbar.style.top = '-100px'; // Adjust this value based on your navbar height
+                } else {
+                    // Scrolling up
+                    navbar.style.top = '0';
+                }
+                lastScrollTop = scrollTop;
+            });
+
+            // Preloader script
             const preloader = document.getElementById('preloader');
             const content = document.getElementById('content');
             if (preloader) {
@@ -101,7 +220,16 @@
             }
             if (content) {
                 content.classList.remove('hidden');
+                content.classList.add('flex'); // Use flex to center content
             }
+
+            // Save color state before navigating
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    sessionStorage.setItem('vantaColorIndex', currentColorIndex);
+                    sessionStorage.setItem('vantaColorTimestamp', Date.now());
+                });
+            });
         });
     </script>
 </body>

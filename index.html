@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual-portfolio3.0</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap" rel="stylesheet">
@@ -15,131 +16,212 @@
         body {
             font-family: 'Handjet', sans-serif;
         }
-        #preloader {
+        #vanta-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #1a202c;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
+            z-index: 0;
         }
-        .loader {
-            border: 8px solid #f3f3f3;
-            border-top: 8px solid #3498db;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 2s linear infinite;
+        #content {
+            position: relative;
+            z-index: 1;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .hover-lift-section {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
-        .hidden {
-            display: none;
+        .hover-lift-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
         }
-
-        
+        .glowing-text {
+            text-shadow: 0 0 8px rgba(192, 132, 252, 0.8), 0 0 15px rgba(192, 132, 252, 0.6);
+        }
+        .text-box-style {
+            background-color: rgba(55, 65, 81, 0.1);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);          
+            backdrop-filter: blur(5px);
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white pt-16">
 
-    <nav class="fixed top-0 w-full bg-gray-800/70 p-2 sm:p-4 flex justify-between items-center z-50 transition-all duration-300" id="main-navbar">
+    <div id="preloader" class="fixed inset-0 bg-gray-900 flex items-center justify-center z-50">
+        <div class="loader"></div>
+    </div>
+
+    <nav class="fixed top-0 w-full bg-gray-800/20 p-2 sm:p-4 flex justify-between items-center z-40 transition-all duration-300 backdrop-blur-sm" id="main-navbar">
         <div class="flex space-x-2 sm:space-x-4">
-            <a href="https://github.com/BorobhaiRion?tab=repositories" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/rionkhan801/" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/BorobhaiRion?tab=repositories" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/rionkhan801/" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300" target="_blank"><i class="fab fa-linkedin"></i></a>
         </div>
         <div class="flex space-x-4">
-            <a href="about.html" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors">About</a>
-            <a href="works.html" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors">Works</a>
+            <a href="about.html" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">About</a>
+            <a href="works.html" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">Works</a>
         </div>
     </nav>
 
-    <div id="preloader">
-        <div class="flex flex-col items-center justify-center">
-            <div class="loader"></div>
-        </div>
-    </div>
-
-    <div id="content" class="hidden relative z-10">
-        <div class="container mx-auto p-4">
-            <div class="flex flex-col items-center">
-                <img src="assets/R1.jpg" id="user-image" class="rounded-full h-32 w-32 sm:h-48 sm:w-48 md:h-64 md:w-64 border-4 border-purple-900 mx-auto">
-                <h1 class="text-4xl font-bold mt-4 glowing-text">Md Foize Khan Rion</h1>
+    <div id="content" class="hidden relative z-10 min-h-screen flex flex-col items-center justify-center">
+        <div class="container mx-auto p-4 sm:px-6 lg:px-8 max-w-4xl">
+            <div class="flex flex-col items-center p-6 md:p-10">
+                <img src="assets/R1.jpg" id="user-image" class="rounded-full h-32 w-32 sm:h-48 sm:w-48 md:h-64 md:w-64 border-4 border-purple-900 mx-auto shadow-lg">
+                <h1 class="text-4xl md:text-5xl font-extrabold mt-4 glowing-text text-center">Md Foize Khan Rion</h1>
             </div>
 
             <hr class="my-8 border-gray-700">
-
-            <div class="text-center max-w-3xl mx-auto hover-lift-section text-box-style">
-                <p class="text-xl">
-                    I am a passionate and dedicated developer eager to bring innovative solutions to the tech industry.
-                    With a solid foundation in programming languages such as Java, Python, CSS, C++, and JavaScript.
-                    I have honed my skills through various personal and academic projects. My keen interest in web and software development
-                    drives me to continuously learn and stay updated with the latest technologies.
-                    I am enthusiastic about securing an internship where I can apply my knowledge, collaborate with professionals, and contribute
-                    to impactful projects. Additionally,
-                    I am interested in gaining knowledge in public relations to effectively communicate and promote technological advancements.
-                    My goal is to leverage my technical skills, creativity, and PR knowledge to deliver exceptional results and grow as a developer.
-                </p>
-                <p class="mt-4 text-xl text-white">Thank you</p>
-            </div>
-
-            <hr class="my-8 border-gray-700">
-
-            <div class="slider w-full overflow-hidden hover-lift-section py-4">
-                <div class="slidet flex w-[200%] md:w-[150%] lg:w-[100%]">
-                    <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/js.png" class="h-24 w-24 mx-auto" title="JavaScript"></div>
-                    <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/message.png" class="h-24 w-24 mx-auto" title="Message"></div>
-                    <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/c.png" class="h-24 w-24 mx-auto" title="C Language"></div>
-                    <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/github.png" class="h-24 w-24 mx-auto" title="GitHub"></div>
-                    <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/word.png" class="h-24 w-24 mx-auto" title="Word"></div>
-                    <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/excel.png" class="h-24 w-24 mx-auto" title="Excel"></div>
-                    <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/java.png" class="h-24 w-24 mx-auto" title="Java"></div>
-                    <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/python.png" class="h-24 w-24 mx-auto" title="Python"></div>
-                    <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/css-3.png" class="h-24 w-24 mx-auto" title="CSS3"></div>
-                    <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/html-5.png" class="h-24 w-24 mx-auto" title="HTML5"></div>
+            
+            <div class="bg-gray-800/10 rounded-xl shadow-2xl backdrop-blur-sm p-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto hover-lift-section text-box-style mb-8">
+                    <p class="text-lg md:text-xl leading-relaxed">
+                        I am a passionate and dedicated developer eager to bring innovative solutions to the tech industry.
+                        With a solid foundation in programming languages such as Java, Python, CSS, C++, and JavaScript.
+                        I have honed my skills through various personal and academic projects. My keen interest in web and software development
+                        drives me to continuously learn and stay updated with the latest technologies.
+                        I am enthusiastic about securing an internship where I can apply my knowledge, collaborate with professionals, and contribute
+                        to impactful projects. Additionally,
+                        I am interested in gaining knowledge in public relations to effectively communicate and promote technological advancements.
+                        My goal is to leverage my technical skills, creativity, and PR knowledge to deliver exceptional results and grow as a developer.
+                    </p>
+                    <p class="mt-4 text-lg md:text-xl text-white">Thank you</p>
                 </div>
+
+                <hr class="my-8 border-gray-700">
+
+                <div class="slider w-full overflow-hidden hover-lift-section py-4 mb-8 text-box-style">
+                    <h2 class="text-2xl md:text-3xl font-bold text-center mb-6 text-blue-300">Skills & Technologies</h2>
+                    <div class="slidet flex animate-slide">
+                        <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/js.png" class="h-20 w-20 sm:h-24 sm:w-24 mx-auto" title="JavaScript"></div>
+                        <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/message.png" class="h-20 w-20 sm:h-24 sm:w-24 mx-auto" title="Message"></div>
+                        <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/c.png" class="h-20 w-20 sm:h-24 sm:w-24 mx-auto" title="C Language"></div>
+                        <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/github.png" class="h-20 w-20 sm:h-24 sm:w-24 mx-auto" title="GitHub"></div>
+                        <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/word.png" class="h-20 w-20 sm:h-24 sm:w-24 mx-auto" title="Word"></div>
+                        <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/excel.png" class="h-20 w-20 sm:h-24 sm:w-24 mx-auto" title="Excel"></div>
+                        <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/java.png" class="h-20 w-20 sm:h-24 sm:w-24 mx-auto" title="Java"></div>
+                        <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/python.png" class="h-20 w-20 sm:h-24 sm:w-24 mx-auto" title="Python"></div>
+                        <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/css-3.png" class="h-20 w-20 sm:h-24 sm:w-24 mx-auto" title="CSS3"></div>
+                        <div class="slide flex-shrink-0 w-1/5 md:w-1/6 lg:w-1/10 px-2"><img src="assets/html-5.png" class="h-20 w-20 sm:h-24 sm:w-24 mx-auto" title="HTML5"></div>
+                    </div>
+                </div>
+
+                <hr class="my-8 border-gray-700">
             </div>
 
-            <hr class="my-8 border-gray-700">
-
-            <hr class="my-8 border-gray-700">
-
-            <div class="text-center hover-lift-section">
-                <h3 class="text-xl"> 01790799857  </h3>
-                <h4 class="text-xl" title="Email Address">EMAIL: <a href="mailto:rion801@gmail.com" class="text-blue-400 hover:text-blue-600">rion801@gmail.com</a></h4>
+            <div class="text-center hover-lift-section p-6">
+                <h3 class="text-xl md:text-2xl font-semibold mb-2">Contact Information</h3>
+                <p class="text-lg md:text-xl mb-1">+880 1790799857</p>
+                    <p class="text-lg md:text-xl mb-1">EMAIL: <a href="mailto:rion801@gmail.com" class="text-blue-400 hover:text-blue-600 transition-colors duration-300">rion801@gmail.com</a></p>
                 <div class="mt-2">
-                    <a href="https://borobhairion.github.io/photons--/" class="text-blue-400 hover:text-blue-600" title="Photography Website">Photography/Borobhairion</a>
+                    <a href="https://borobhairion.github.io/photons--/" class="text-blue-400 hover:text-blue-600 transition-colors duration-300" title="Photography Website" target="_blank">Photography/Borobhairion</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="scripts/index.js"></script>
-    <canvas id="cmatrix-canvas" class="fixed top-0 left-0 w-full h-full"></canvas>
-    <script src="scripts/cmatrix.js"></script>
+    <div id="vanta-bg"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
     <script>
-        window.cmatrixColor = '#0F0'; // Green for index page
-        window.cmatrixAlphabet = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let vantaEffect;
+        const colors = [
+            { bg: 0xBB882, fg: 0xD3D3D3 },
+            { bg: 0xE222E, fg: 0x606060 },
+            { bg: 0x1D1D1D, fg: 0x177070 },
+            { bg: 0x666666, fg: 0xFFFFFF }
+        ];
+        let currentColorIndex = 0;
+        const transitionDuration = 1000; // 1 second for transition
+        const displayDuration = 6000; // 6 seconds for each color
 
-        let lastScrollTop = 0;
-        const navbar = document.getElementById('main-navbar');
+        function hexToRgb(hex) {
+            const r = (hex >> 16) & 0xFF;
+            const g = (hex >> 8) & 0xFF;
+            const b = hex & 0xFF;
+            return { r, g, b };
+        }
 
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        function rgbToHex(r, g, b) {
+            return (r << 16) | (g << 8) | b;
+        }
 
-            if (scrollTop > lastScrollTop) {
-                // Scrolling down
-                navbar.style.top = '-100px'; // Adjust this value based on your navbar height
-            } else {
-                // Scrolling up
-                navbar.style.top = '0';
+        function interpolateColor(color1, color2, factor) {
+            const rgb1 = hexToRgb(color1);
+            const rgb2 = hexToRgb(color2);
+
+            const r = Math.round(rgb1.r + factor * (rgb2.r - rgb1.r));
+            const g = Math.round(rgb1.g + factor * (rgb2.g - rgb1.g));
+            const b = Math.round(rgb1.b + factor * (rgb2.b - rgb1.b));
+
+            return rgbToHex(r, g, b);
+        }
+
+        function animateColorTransition(startTime, startColors, endColors) {
+            const currentTime = Date.now();
+            const elapsed = currentTime - startTime;
+            const factor = Math.min(elapsed / transitionDuration, 1);
+
+            if (vantaEffect) {
+                vantaEffect.setOptions({
+                    backgroundColor: interpolateColor(startColors.bg, endColors.bg, factor),
+                    color: interpolateColor(startColors.fg, endColors.fg, factor)
+                });
             }
-            lastScrollTop = scrollTop;
+
+            if (factor < 1) {
+                requestAnimationFrame(() => animateColorTransition(startTime, startColors, endColors));
+            }
+        }
+
+        function cycleColors() {
+            const prevColorIndex = currentColorIndex;
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+            
+            const startColors = colors[prevColorIndex];
+            const endColors = colors[currentColorIndex];
+
+            animateColorTransition(Date.now(), startColors, endColors);
+        }
+
+        function initVanta() {
+            vantaEffect = VANTA.NET({
+                el: "#vanta-bg",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                points: 11.00,
+                maxDistance: 20.00,
+                spacing: 17.00,
+                backgroundAlpha: 1.00,
+                color: colors[currentColorIndex].fg,
+                backgroundColor: colors[currentColorIndex].bg
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initVanta();
+            setInterval(cycleColors, displayDuration);
+
+            let lastScrollTop = 0;
+            const navbar = document.getElementById('main-navbar');
+
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop > lastScrollTop) {
+                    // Scrolling down
+                    navbar.style.top = '-100px'; // Adjust this value based on your navbar height
+                } else {
+                    // Scrolling up
+                    navbar.style.top = '0';
+                }
+                lastScrollTop = scrollTop;
+            });
         });
 
         // Preloader script
@@ -151,6 +233,7 @@
             }
             if (content) {
                 content.classList.remove('hidden');
+                content.classList.add('flex'); // Use flex to center content
             }
         });
     </script>

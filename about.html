@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual-portfolio3.0</title>
+    <title>About Me - Md Foize Khan Rion</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap" rel="stylesheet">
@@ -15,73 +16,203 @@
         body {
             font-family: 'Handjet', sans-serif;
         }
+        #vanta-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        #content {
+            position: relative;
+            z-index: 1;
+        }
+        .hover-lift-section {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .hover-lift-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        .glowing-text {
+            text-shadow: 0 0 8px rgba(192, 132, 252, 0.8), 0 0 15px rgba(192, 132, 252, 0.6);
+        }
+        .text-box-style {
+            background-color: rgba(55, 65, 81, 0.1);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            
+            backdrop-filter: blur(5px);
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white pt-16">
 
-    <div id="preloader">
-        <div class="flex flex-col items-center justify-center">
-            <div class="loader"></div>
-        </div>
+    <div id="preloader" class="fixed inset-0 bg-gray-900 flex items-center justify-center z-50">
+        <div class="loader"></div>
     </div>
 
-    <nav class="fixed top-0 w-full bg-gray-800/70 p-2 sm:p-4 flex justify-between items-center z-50 transition-all duration-300" id="main-navbar">
+    <nav class="fixed top-0 w-full bg-gray-800/20 p-2 sm:p-4 flex justify-between items-center z-40 transition-all duration-300 backdrop-blur-sm" id="main-navbar">
         <div class="flex space-x-2 sm:space-x-4">
-            <a href="#" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors"><i class="fab fa-github"></i></a>
-            <a href="#" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/BorobhaiRion?tab=repositories" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/rionkhan801/" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300" target="_blank"><i class="fab fa-linkedin"></i></a>
         </div>
         <div class="flex space-x-4">
-            <a href="index.html" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors">Home</a>
-            <a href="works.html" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition-colors">Works</a>
+            <a href="index.html" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">Home</a>
+            <a href="works.html" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">Works</a>
         </div>
     </nav>
 
-    <div id="content" class="hidden relative z-10">
-        <div class="container mx-auto p-4 sm:px-6 lg:px-8">
-        <div class="about hover-lift-section">
+    <div id="content" class="hidden relative z-10 min-h-screen flex flex-col items-center justify-center">
+        <div class="container mx-auto p-4 sm:px-6 lg:px-8 max-w-4xl">
+            <div class="flex flex-col items-center p-6 md:p-10">
+              
+                <h1 class="text-4xl md:text-5xl font-extrabold mt-4 glowing-text text-center">About Me</h1>
+            </div>
+
             <hr class="my-8 border-gray-700">
-            <h5 class="text-2xl md:text-3xl font-bold">EDUCATION</h5>
-            <ul class="list-disc list-inside mt-4">
-                <li class="text-base md:text-xl">Bachelor of Computer Science | American International University-Bangladesh | Kuril, Dhaka | 6/2023-9/2026<br>
-                    <span class="text-white">Cumulative GPA: 3.71/4.00</span>
-                </li>
-                <li class="mt-2 text-base md:text-xl">Hamidpur Al-Hera college | Science | Hamidpur,Jashore | 6/2019-12/2021<br>
-                    <span class="text-white">Cumulative GPA: 4.98/5.00</span>
-                </li>
-                <li class="mt-2 text-base md:text-xl">Jashore zilla School | Science | Mujib Sarak,Jashore | 2011-2019<br>
-                    <span class="text-white">Cumulative GPA: 4.72/5.00</span>
-                </li>
-            </ul>
+            
+            <div class="bg-gray-800/10 rounded-xl shadow-2xl backdrop-blur-sm p-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto hover-lift-section text-box-style mb-8">
+                    <h2 class="text-2xl md:text-3xl font-bold text-center mb-4 text-blue-300">Education</h2>
+                    <ul class="list-disc list-inside mt-4 text-lg md:text-xl text-left mx-auto max-w-prose">
+                        <li><b>Bachelor of Computer Science</b> | American International University-Bangladesh | Kuril, Dhaka | 6/2023-9/2026<br>
+                            <span class="text-white">Cumulative GPA: 3.71/4.00</span>
+                        </li>
+                        <li class="mt-2"><b>Hamidpur Al-Hera college</b> | Science | Hamidpur,Jashore | 6/2019-12/2021<br>
+                            <span class="text-white">Cumulative GPA: 4.98/5.00</span>
+                        </li>
+                        <li class="mt-2"><b>Jashore zilla School</b> | Science | Mujib Sarak,Jashore | 2011-2019<br>
+                            <span class="text-white">Cumulative GPA: 4.72/5.00</span>
+                        </li>
+                    </ul>
+                </div>
 
-            <h6 class="text-2xl md:text-3xl font-bold mt-8">TECHNICAL SKILLS</h6>
-            <ul class="list-disc list-inside mt-4">
-                <li class="text-base md:text-xl">Windows 7/10/11, Microsoft Office 2003/2007/2010/2013.</li>
-                <li class="text-base md:text-xl">MY SQL, ORACLE.</li>
-                <li class="text-base md:text-xl">WEB DEVELOPMENT</li>
-                <li class="text-base md:text-xl">SOFTWARE DEVELOPMENT.</li>
-            </ul>
+                <hr class="my-8 border-gray-700">
 
-            <h7 class="text-2xl md:text-3xl font-bold mt-8">Communication & Professional Skills</h7>
-            <ul class="list-disc list-inside mt-4">
-                <li class="text-base md:text-xl">Fluent in Bangla and English — both verbal and written</li>
-                <li class="text-base md:text-xl">Skilled in public speaking and multimedia presentation</li>
-                <li class="text-base md:text-xl">Have the ability to work independently as well as in a team.</li>
-                <li class="text-base md:text-xl">Have the ability to work under pressure/any circumstances</li>
-            </ul>
+                <div class="text-center max-w-3xl mx-auto hover-lift-section text-box-style mb-8">
+                    <h2 class="text-2xl md:text-3xl font-bold text-center mb-4 text-blue-300">Technical Skills</h2>
+                    <ul class="list-disc list-inside mt-4 text-lg md:text-xl text-left mx-auto max-w-prose">
+                        <li>Windows 7/10/11, Microsoft Office 2003/2007/2010/2013.</li>
+                        <li>MY SQL, ORACLE.</li>
+                        <li>WEB DEVELOPMENT</li>
+                        <li>SOFTWARE DEVELOPMENT.</li>
+                    </ul>
+                </div>
 
-            <h8 class="text-2xl md:text-3xl font-bold mt-8">REFERENCE</h8>
-            <ul class="list-disc list-inside mt-4">
-                <li class="text-base md:text-xl">Will be provided upon request.</li>
-            </ul>
-            <hr class="my-8 border-gray-700">
+                <hr class="my-8 border-gray-700">
+
+                <div class="text-center max-w-3xl mx-auto hover-lift-section text-box-style mb-8">
+                    <h2 class="text-2xl md:text-3xl font-bold text-center mb-4 text-blue-300">Communication & Professional Skills</h2>
+                    <ul class="list-disc list-inside mt-4 text-lg md:text-xl text-left mx-auto max-w-prose">
+                        <li>Fluent in Bangla and English — both verbal and written</li>
+                        <li>Skilled in public speaking and multimedia presentation</li>
+                        <li>Have the ability to work independently as well as in a team.</li>
+                        <li>Have the ability to work under pressure/any circumstances</li>
+                    </ul>
+                </div>
+
+                <hr class="my-8 border-gray-700">
+
+                <div class="text-center max-w-3xl mx-auto hover-lift-section text-box-style mb-8">
+                    <h2 class="text-2xl md:text-3xl font-bold text-center mb-4 text-blue-300">Reference</h2>
+                    <ul class="list-disc list-inside mt-4 text-lg md:text-xl text-left mx-auto max-w-prose">
+                        <li>Will be provided upon request.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-    <canvas id="cmatrix-canvas" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
-    <script src="scripts/cmatrix.js"></script>
+
+    <div id="vanta-bg"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
     <script>
-        window.cmatrixColor = '#F00'; // Red for about page
-        window.cmatrixAlphabet = '∫∑∏√∂∇∀∃∈∉∧∨∩∪⊂⊃⊆⊇¬≡≈≠≤≥∞∝ℏλπΩΦΨΔΓΞΛΣΘΞ'; // Scientific formulas
+        let vantaEffect;
+        const colors = [
+            { bg: 0xBB882, fg: 0xD3D3D3 },
+            { bg: 0xE222E, fg: 0x606060 },
+            { bg: 0x1D1D1D, fg: 0x177070 },
+            { bg: 0x666666, fg: 0xFFFFFF }
+        ];
+        let currentColorIndex = 0;
+        const transitionDuration = 1000; // 1 second for transition
+        const displayDuration = 6000; // 6 seconds for each color
+
+        function hexToRgb(hex) {
+            const r = (hex >> 16) & 0xFF;
+            const g = (hex >> 8) & 0xFF;
+            const b = hex & 0xFF;
+            return { r, g, b };
+        }
+
+        function rgbToHex(r, g, b) {
+            return (r << 16) | (g << 8) | b;
+        }
+
+        function interpolateColor(color1, color2, factor) {
+            const rgb1 = hexToRgb(color1);
+            const rgb2 = hexToRgb(color2);
+
+            const r = Math.round(rgb1.r + factor * (rgb2.r - rgb1.r));
+            const g = Math.round(rgb1.g + factor * (rgb2.g - rgb1.g));
+            const b = Math.round(rgb1.b + factor * (rgb2.b - rgb1.b));
+
+            return rgbToHex(r, g, b);
+        }
+
+        function animateColorTransition(startTime, startColors, endColors) {
+            const currentTime = Date.now();
+            const elapsed = currentTime - startTime;
+            const factor = Math.min(elapsed / transitionDuration, 1);
+
+            if (vantaEffect) {
+                vantaEffect.setOptions({
+                    backgroundColor: interpolateColor(startColors.bg, endColors.bg, factor),
+                    color: interpolateColor(startColors.fg, endColors.fg, factor)
+                });
+            }
+
+            if (factor < 1) {
+                requestAnimationFrame(() => animateColorTransition(startTime, startColors, endColors));
+            }
+        }
+
+        function cycleColors() {
+            const prevColorIndex = currentColorIndex;
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+            
+            const startColors = colors[prevColorIndex];
+            const endColors = colors[currentColorIndex];
+
+            animateColorTransition(Date.now(), startColors, endColors);
+        }
+
+        function initVanta() {
+            vantaEffect = VANTA.NET({
+                el: "#vanta-bg",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                points: 11.00,
+                maxDistance: 20.00,
+                spacing: 17.00,
+                backgroundAlpha: 1.00,
+                color: colors[currentColorIndex].fg,
+                backgroundColor: colors[currentColorIndex].bg
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
+            initVanta();
+            setInterval(cycleColors, displayDuration);
+
             let lastScrollTop = 0;
             const navbar = document.getElementById('main-navbar');
 
@@ -108,6 +239,7 @@
             }
             if (content) {
                 content.classList.remove('hidden');
+                content.classList.add('flex'); // Use flex to center content
             }
         });
     </script>
