@@ -126,10 +126,10 @@
     <script>
         let vantaEffect;
         const colors = [
-            { bg: 0xBB882, fg: 0xD3D3D3 },
-            { bg: 0xE222E, fg: 0x606060 },
-            { bg: 0x1D1D1D, fg: 0x177070 },
-            { bg: 0x666666, fg: 0xFFFFFF }
+            { bg: 0x1c0317, fg: 0x606060 },
+            { bg: 0xd02, fg: 0x177070 },
+            { bg: 0x1c0317, fg: 0x177070 } // Darker color for contrast
+            
         ];
         let currentColorIndex = 0;
         const transitionDuration = 1000; // 1 second for transition
@@ -185,6 +185,15 @@
         }
 
         function initVanta() {
+            // Disable Vanta.js on mobile or if prefers-reduced-motion is enabled
+            const isMobile = window.innerWidth < 768; // Adjust breakpoint as needed
+            const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            if (isMobile || prefersReducedMotion) {
+                document.getElementById('vanta-bg').style.display = 'none';
+                return;
+            }
+
             vantaEffect = VANTA.NET({
                 el: "#vanta-bg",
                 mouseControls: true,
@@ -194,9 +203,9 @@
                 minWidth: 200.00,
                 scale: 1.00,
                 scaleMobile: 1.00,
-                points: 11.00,
-                maxDistance: 20.00,
-                spacing: 17.00,
+                points: 10.00, // Further reduced points
+                maxDistance: 15.00, // Further reduced maxDistance
+                spacing: 12.00, // Further reduced spacing
                 backgroundAlpha: 1.00,
                 color: colors[currentColorIndex].fg,
                 backgroundColor: colors[currentColorIndex].bg
