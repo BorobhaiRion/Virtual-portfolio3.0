@@ -186,14 +186,7 @@
         }
 
         function initVanta() {
-            // Disable Vanta.js on mobile or if prefers-reduced-motion is enabled
-            const isMobile = window.innerWidth < 768; // Adjust breakpoint as needed
-            const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-            if (isMobile || prefersReducedMotion) {
-                document.getElementById('vanta-bg').style.display = 'none';
-                return;
-            }
+            
 
             let initialColorIndex = 0;
             let initialTimestamp = Date.now();
