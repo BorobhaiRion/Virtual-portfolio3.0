@@ -131,9 +131,9 @@
     <script>
         let vantaEffect;
         const colors = [
-            { bg: 0xE222E, fg: 0x606060 },
-            { bg: 0x1D1D1D, fg: 0x177070 },
-            { bg: 0x666666, fg: 0xFFFFFF }
+            { bg: 0x0, fg: 0xFF55FF },
+            { bg: 0x3080f, fg: 0x3E8E8E },
+            { bg: 0x404040, fg: 0x606060 }
         ];
         let currentColorIndex = 0;
         const transitionDuration = 1000; // 1 second for transition
@@ -186,6 +186,8 @@
             const endColors = colors[currentColorIndex];
 
             animateColorTransition(Date.now(), startColors, endColors);
+            sessionStorage.setItem('vantaColorIndex', currentColorIndex);
+            sessionStorage.setItem('vantaColorTimestamp', Date.now());
         }
 
         function initVanta() {
@@ -198,6 +200,19 @@
                 return;
             }
 
+            let initialColorIndex = 0;
+            let initialTimestamp = Date.now();
+
+            const storedColorIndex = sessionStorage.getItem('vantaColorIndex');
+            const storedTimestamp = sessionStorage.getItem('vantaColorTimestamp');
+
+            if (storedColorIndex !== null && storedTimestamp !== null) {
+                initialColorIndex = parseInt(storedColorIndex);
+                initialTimestamp = parseInt(storedTimestamp);
+            }
+
+            currentColorIndex = initialColorIndex;
+
             vantaEffect = VANTA.NET({
                 el: "#vanta-bg",
                 mouseControls: true,
@@ -207,18 +222,24 @@
                 minWidth: 200.00,
                 scale: 1.00,
                 scaleMobile: 1.00,
-                points: 10.00, // Further reduced points
-                maxDistance: 15.00, // Further reduced maxDistance
-                spacing: 12.00, // Further reduced spacing
+                points: 18.00,
+                maxDistance: 17.00,
+                spacing: 15.00,
                 backgroundAlpha: 1.00,
                 color: colors[currentColorIndex].fg,
                 backgroundColor: colors[currentColorIndex].bg
             });
+
+            const elapsedTime = Date.now() - initialTimestamp;
+            const remainingTime = displayDuration - (elapsedTime % displayDuration);
+            setTimeout(() => {
+                cycleColors();
+                setInterval(cycleColors, displayDuration);
+            }, remainingTime);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
             initVanta();
-            setInterval(cycleColors, displayDuration);
 
             let lastScrollTop = 0;
             const navbar = document.getElementById('main-navbar');
@@ -235,10 +256,8 @@
                 }
                 lastScrollTop = scrollTop;
             });
-        });
 
-        // Preloader script
-        window.addEventListener('load', function() {
+            // Preloader script
             const preloader = document.getElementById('preloader');
             const content = document.getElementById('content');
             if (preloader) {
@@ -248,6 +267,14 @@
                 content.classList.remove('hidden');
                 content.classList.add('flex'); // Use flex to center content
             }
+
+            // Save color state before navigating
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    sessionStorage.setItem('vantaColorIndex', currentColorIndex);
+                    sessionStorage.setItem('vantaColorTimestamp', Date.now());
+                });
+            });
         });
     </script>
 </body>
