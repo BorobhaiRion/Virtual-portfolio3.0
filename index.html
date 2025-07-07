@@ -121,39 +121,10 @@
 
     <script src="scripts/index.js"></script>
     <canvas id="cmatrix-canvas" class="fixed top-0 left-0 w-full h-full"></canvas>
-    <script src="scripts/index.js"></script>
-    <canvas id="cmatrix-canvas" class="fixed top-0 left-0 w-full h-full"></canvas>
     <script src="scripts/cmatrix.js"></script>
     <script>
         window.cmatrixColor = '#0F0'; // Green for index page
         window.cmatrixAlphabet = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        document.addEventListener('DOMContentLoaded', function() {
-            const userImage = document.getElementById('user-image');
-            if (userImage) {
-                // Wait for the image to load to get accurate dimensions
-                userImage.onload = function() {
-                    const rect = userImage.getBoundingClientRect();
-                    window.userImageRect = {
-                        x: rect.left + window.scrollX,
-                        y: rect.top + window.scrollY,
-                        width: rect.width,
-                        height: rect.height
-                    };
-                    console.log('User image rect:', window.userImageRect);
-                };
-                // If image is already loaded (e.g., from cache)
-                if (userImage.complete) {
-                    const rect = userImage.getBoundingClientRect();
-                    window.userImageRect = {
-                        x: rect.left + window.scrollX,
-                        y: rect.top + window.scrollY,
-                        width: rect.width,
-                        height: rect.height
-                    };
-                    console.log('User image rect (complete):', window.userImageRect);
-                }
-            }
-        });
 
         let lastScrollTop = 0;
         const navbar = document.getElementById('main-navbar');

@@ -64,7 +64,7 @@ function draw() {
     }
 }
 
-setInterval(draw, 33);
+setInterval(draw, 50);
 
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
@@ -75,15 +75,4 @@ window.addEventListener('resize', () => {
     for (let i = 0; i < columns; i++) {
         drops[i] = 1;
     }
-    // Re-calculate image rect on resize as well
-    const userImage = document.getElementById('user-image');
-    if (userImage) {
-        const rect = userImage.getBoundingClientRect();
-        window.userImageRect = {
-            x: rect.left + window.scrollX,
-            y: rect.top + window.scrollY,
-            width: rect.width,
-            height: rect.height
-        };
-    }
-});
+    });
