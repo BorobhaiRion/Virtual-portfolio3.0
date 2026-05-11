@@ -1,0 +1,110 @@
+Arduino Line Follower Robot
+An autonomous ground robot built on Arduino UNO that follows a black line using 3 IR sensors and a proportional control algorithm. The robot uses a dual-mode navigation system — smooth proportional correction for straight paths and gentle curves, and an aggressive pivot-and-lock mechanism for sharp turns that stops momentum before pivoting until the line is reacquired. Motor drive is handled via an L298N H-bridge with independently PWM-controlled wheels. The firmware was iteratively tuned from scratch, resolving real hardware challenges including non-PWM pin conflicts, bare IR sensor detection limits, motor direction mismatches, and standalone battery power stability.
+Hardware: Arduino UNO · L298N Motor Driver · 3-channel IR Sensor Array · DC Gear Motors
+Key concepts: Proportional control · PWM motor speed · Digital sensor reading · Autonomous navigation
+
+
+code: // ======================
+// MOTORS & SENSORS
+// ======================
+const int IN1 = 11; const int IN2 = 10;
+const int IN3 = 9;  const int IN4 = 6;
+const int ENA = 5;  const int ENB = 3;
+const int L = 2;    const int C = 4;    const int R = 7;
+
+// ======================
+// TUNED SETTINGS
+// ======================
+int baseSpeed = 45;   // Good speed for straights
+float Kp = 40;        // Smooth tracking to prevent drifting sideways
+
+void setup() {
+  pinMode(IN1, OUTPUT); pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT); pinMode(IN4, OUTPUT);
+  pinMode(ENA, OUTPUT); pinMode(ENB, OUTPUT);
+  pinMode(L, INPUT); pinMode(C, INPUT); pinMode(R, INPUT);
+}
+
+void loop() {
+  int left = digitalRead(L);
+  int center = digitalRead(C);
+  int right = digitalRead(R);
+
+  // ======================
+  // 1. SHARP TURN OVERRIDE (The "Turn Fix")
+  // ======================
+  // If the center sensor LOSES the line but a side sensor HAS it, 
+  // we must pivot immediately to stop the front-heavy slide.
+  
+  if (left == 1 && center == 0) {
+    stopMotors(); 
+    delay(20); // Kill the forward momentum
+    while(digitalRead(C) == 0) {
+      pivotLeft();
+    }
+    return;
+  }
+
+  if (right == 1 && center == 0) {
+    stopMotors();
+    delay(20);
+    while(digitalRead(C) == 0) {
+      pivotRight();
+    }
+    return;
+  }
+
+  // ======================
+  // 2. STRAIGHT LINE & GENTLE CURVES (The "Speed Fix")
+  // ======================
+  // This is your original logic that worked well for straights
+  if (center == 1) {
+    float error = (right * 1) + (left * -1);
+    float correction = Kp * error;
+
+    int leftSpeed = baseSpeed + correction;
+    int rightSpeed = baseSpeed - correction;
+
+    // Constrain so motors always have enough torque to move the battery
+    leftSpeed = constrain(leftSpeed, 30, 70);
+    rightSpeed = constrain(rightSpeed, 30, 70);
+
+    moveMotor(leftSpeed, rightSpeed);
+  } 
+  
+  // ======================
+  // 3. LOST LINE
+  // ======================
+  else if (left == 0 && center == 0 && right == 0) {
+    stopMotors();
+  }
+}
+
+// ======================
+// MOTOR CORE FUNCTIONS
+// ======================
+
+void moveMotor(int leftSpeed, int rightSpeed) {
+  digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW);
+  digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW);
+  analogWrite(ENA, leftSpeed);
+  analogWrite(ENB, rightSpeed);
+}
+
+void pivotLeft() {
+  digitalWrite(IN1, LOW);  digitalWrite(IN2, HIGH); 
+  digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW);
+  analogWrite(ENA, 45); analogWrite(ENB, 45);    
+}
+
+void pivotRight() {
+  digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW);
+  digitalWrite(IN3, LOW);  digitalWrite(IN4, HIGH);
+  analogWrite(ENA, 45); analogWrite(ENB, 45);
+}
+
+void stopMotors() {
+  analogWrite(ENA, 0); analogWrite(ENB, 0);
+  digitalWrite(IN1, LOW); digitalWrite(IN2, LOW);
+  digitalWrite(IN3, LOW); digitalWrite(IN4, LOW);
+}
