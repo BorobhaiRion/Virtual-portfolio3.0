@@ -1,0 +1,63 @@
+<%- await include('partials/head', { title: 'My Works', description: 'Projects by Md Foize Khan Rion — games, photography and robotics.' }) %>
+<body>
+
+    <%- await include('partials/preloader') %>
+
+    <%- await include('partials/navbar', { active: 'works' }) %>
+
+    <main id="main" class="wrap" tabindex="-1">
+        <h1 data-scramble>My Works</h1>
+
+        <table class="projects reveal">
+            <tbody>
+                <tr data-preview="/assets/game.png">
+                    <td>
+                        <a href="https://borobhaiRion.itch.io/beginner-worrior" target="_blank" rel="noopener" data-cursor="view">
+                            <img class="thumb" src="/assets/game.png" alt="Beginner Warrior game" width="640" height="400" loading="lazy" decoding="async">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://borobhaiRion.itch.io/beginner-worrior" target="_blank" rel="noopener" data-cursor="view">Beginner Warrior (Game)</a>
+                    </td>
+                </tr>
+                <tr data-preview="/assets/photons.png">
+                    <td>
+                        <a href="https://borobhaiRion.github.io/photons--/" target="_blank" rel="noopener" data-cursor="view">
+                            <img class="thumb" src="/assets/photons.png" alt="Photons photography website" width="640" height="400" loading="lazy" decoding="async">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://borobhaiRion.github.io/photons--/" target="_blank" rel="noopener" data-cursor="view">Photons (Photography Website)</a>
+                    </td>
+                </tr>
+                <tr data-preview="/assets/projects/line-follower.jpeg">
+                    <td>
+                        <a href="/linefollower.html" data-cursor="view">
+                            <img class="thumb" src="/assets/projects/line-follower.jpeg" alt="Arduino line follower robot" width="640" height="400" loading="lazy" decoding="async">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/linefollower.html" data-cursor="view">Arduino Line Follower Robot</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <a href="https://borobhairion.github.io/Virtual-portfolio3.0/works.html" target="_blank" rel="noopener" data-cursor="view">Virtual Portfolio 3.0</a> — Developed a responsive personal portfolio website showcasing projects, skills, and experience.
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <a href="https://github.com/BorobhaiRion/Webtech-Group-4" target="_blank" rel="noopener" data-cursor="view">Webtech Group 4</a> — Built an interactive university e-commerce website using PHP, SQL, JavaScript, HTML, and CSS, applying MVC architecture.
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <a href="https://zenggcafe.netlify.app" target="_blank" rel="noopener" data-cursor="view">Zengg Cafe</a> — Developed a cafe management system with automated pricing and menu management, customer feedback integration, and a custom React/Supabase dashboard.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Add more work items here as needed -->
+    </main>
+
+    <%- await include('partials/footer') %>

@@ -1,0 +1,18 @@
+/* --------------------------------------------------------------------------
+   Tailwind entry stylesheet.
+
+   Compiled to public/css/site.css by the Tailwind CLI. This replaces the
+   `https://cdn.tailwindcss.com` development script, which downloaded a large
+   JS bundle and compiled the CSS in the browser on every page load.
+   -------------------------------------------------------------------------- */
+@import "tailwindcss";
+
+/* Project styles are placed in the `base` layer so that utility classes in the
+   markup still take precedence over them — the same cascade order the site had
+   when Tailwind was injected from its CDN. */
+@import "./style.css" layer(base);
+
+/* Files scanned for utility class names (Tailwind v4 auto-detects sources, but
+   listing them keeps the scan predictable). */
+@source "../../views";
+@source "../../public/js";

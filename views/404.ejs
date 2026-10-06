@@ -1,0 +1,18 @@
+<%- await include('partials/head', { title: '404 Not Found', description: 'The requested URL was not found on this server.' }) %>
+<body>
+
+    <%- await include('partials/preloader') %>
+
+    <main id="main" class="wrap" tabindex="-1">
+        <h1>Not Found</h1>
+
+        <p>The requested URL was not found on this server.</p>
+
+        <hr>
+
+        <address>Apache/2.4.41 (Unix) Server at borobhairion.github.io Port 80</address>
+
+        <p><a href="/" data-cursor="open">Return to the home page</a></p>
+    </main>
+
+    <%- await include('partials/footer') %>

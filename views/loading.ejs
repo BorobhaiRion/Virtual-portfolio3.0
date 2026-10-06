@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#f4f4ef">
+    <meta name="color-scheme" content="light dark">
+    <meta name="robots" content="noindex">
+    <title>Loading...</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+        }
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f4f4ef;
+            color: #98575f;
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #07110b;
+                color: #67ffb2;
+            }
+        }
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader" id="loader">1%</div>
+
+    <script src="/js/loading.js" defer></script>
+</body>
+</html>

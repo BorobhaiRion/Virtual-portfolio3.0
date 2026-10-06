@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#f4f4ef">
+    <meta name="description" content="<%= typeof description !== 'undefined' ? description : 'Portfolio of Md Foize Khan Rion — developer, photographer and maker.' %>">
+    <title><%= title %></title>
+
+    <%# Resolve the theme before first paint so there is never a flash of the
+        wrong palette: an explicit choice from localStorage wins, otherwise we
+        follow the operating system preference. %>
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var theme = 'light';
+            try {
+                var saved = window.localStorage.getItem('theme');
+                if (saved === 'light' || saved === 'dark') {
+                    theme = saved;
+                } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    theme = 'dark';
+                }
+            } catch (error) {
+                /* storage can be unavailable (private mode) — fall back to light */
+            }
+            root.setAttribute('data-theme', theme);
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) {
+                meta.setAttribute('content', theme === 'dark' ? '#07110b' : '#f4f4ef');
+            }
+
+            /* Every page — the home page first of all — must open at the very
+               top: no restored scroll position, no replayed anchor scroll. */
+            if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'manual';
+            }
+
+            window.addEventListener('load', function () {
+                /* Honour a real #anchor (the skip link), reset everything else. */
+                if (window.location.hash) return;
+                var previous = root.style.scrollBehavior;
+                root.style.scrollBehavior = 'auto';
+                window.scrollTo(0, 0);
+                root.style.scrollBehavior = previous;
+            });
+        })();
+    </script>
+
+    <link rel="stylesheet" href="/css/site.css">
+</head>

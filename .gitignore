@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Static build output
+dist/
+
+# Generated stylesheet (npm run build:css)
+public/css/site.css
+
+# Local environment / secrets (Supabase credentials)
+.env
+.env.local
+
+# Editor / OS cruft
+.DS_Store
+Thumbs.db

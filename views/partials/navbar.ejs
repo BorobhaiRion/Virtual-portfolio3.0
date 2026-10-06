@@ -1,0 +1,25 @@
+<%
+  /* Pass `active` as one of: 'home' | 'about' | 'works' to mark the current page.
+     Every link that existed before is still here — only the presentation changed. */
+  const navLinks = [
+    { href: '/',         label: 'Home',  key: 'home'  },
+    { href: '/about.html', label: 'About', key: 'about' },
+    { href: '/works.html', label: 'Works', key: 'works' }
+  ];
+  const current = typeof active !== 'undefined' ? active : '';
+%>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+    <nav aria-label="Main navigation">
+        <% navLinks.forEach(function (link) { %>
+        <a href="<%= link.href %>" data-cursor="open"<% if (current === link.key) { %> aria-current="page"<% } %>><%= link.label %></a>
+        <% }); %>
+    </nav>
+    <div class="tools">
+        <a href="https://github.com/BorobhaiRion?tab=repositories" target="_blank" rel="noopener" aria-label="GitHub profile" data-cursor="open">GitHub</a>
+        <a href="https://www.linkedin.com/in/rionkhan801/" target="_blank" rel="noopener" aria-label="LinkedIn profile" data-cursor="open">LinkedIn</a>
+        <button id="theme-toggle" class="theme-switch" type="button" aria-label="Toggle colour theme">[ <span data-mode="light">light</span> | <span data-mode="dark">dark</span> ]</button>
+        <button id="palette-open" class="palette-btn" type="button" aria-keyshortcuts="Control+K Meta+K" aria-haspopup="dialog">[ Ctrl+K ]</button>
+    </div>
+</header>
+<hr>

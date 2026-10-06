@@ -1,0 +1,57 @@
+<%- await include('partials/head', { title: 'Virtual-portfolio3.0' }) %>
+<body>
+
+    <%- await include('partials/preloader') %>
+
+    <%- await include('partials/navbar', { active: 'home' }) %>
+
+    <main id="main" class="wrap" tabindex="-1">
+        <div class="portrait-zoom" data-cursor="zoom">
+            <img class="portrait reveal" src="/assets/R1.jpg" width="256" height="256" fetchpriority="high" decoding="async" alt="Portrait of Md Foize Khan Rion">
+            <span class="portrait-lens" aria-hidden="true"></span>
+        </div>
+
+        <h1 data-scramble>Md Foize Khan Rion</h1>
+
+        <p class="reveal">
+            I am a passionate and dedicated developer eager to bring innovative solutions to the tech industry.
+            With a solid foundation in programming languages such as Java, Python, CSS, C++, and JavaScript.
+            I have honed my skills through various personal and academic projects. My keen interest in web and software development
+            drives me to continuously learn and stay updated with the latest technologies.
+            I am enthusiastic about securing an internship where I can apply my knowledge, collaborate with professionals, and contribute
+            to impactful projects. Additionally,
+            I am interested in gaining knowledge in public relations to effectively communicate and promote technological advancements.
+            My goal is to leverage my technical skills, creativity, and PR knowledge to deliver exceptional results and grow as a developer.
+        </p>
+        <p class="reveal">Thank you</p>
+
+        <hr>
+
+        <h2 data-scramble>Skills &amp; Technologies</h2>
+        <ul class="skills reveal">
+            <li><img src="/assets/js.png" width="20" height="20" loading="lazy" decoding="async" alt="JavaScript" title="JavaScript"> JavaScript</li>
+            <li><img src="/assets/message.png" width="20" height="20" loading="lazy" decoding="async" alt="Message" title="Message"> Message</li>
+            <li><img src="/assets/c.png" width="20" height="20" loading="lazy" decoding="async" alt="C Language" title="C Language"> C Language</li>
+            <li><img src="/assets/github.png" width="20" height="20" loading="lazy" decoding="async" alt="GitHub" title="GitHub"> GitHub</li>
+            <li><img src="/assets/word.png" width="20" height="20" loading="lazy" decoding="async" alt="Word" title="Word"> Word</li>
+            <li><img src="/assets/excel.png" width="20" height="20" loading="lazy" decoding="async" alt="Excel" title="Excel"> Excel</li>
+            <li><img src="/assets/java.png" width="20" height="20" loading="lazy" decoding="async" alt="Java" title="Java"> Java</li>
+            <li><img src="/assets/python.png" width="20" height="20" loading="lazy" decoding="async" alt="Python" title="Python"> Python</li>
+            <li><img src="/assets/css-3.png" width="20" height="20" loading="lazy" decoding="async" alt="CSS3" title="CSS3"> CSS3</li>
+            <li><img src="/assets/html-5.png" width="20" height="20" loading="lazy" decoding="async" alt="HTML5" title="HTML5"> HTML5</li>
+        </ul>
+
+        <hr>
+
+        <h2 data-scramble>Contact Information</h2>
+        <ul class="reveal">
+            <li>+880 1790799857</li>
+            <li>EMAIL: <a href="mailto:rion801@gmail.com" data-cursor="copy">rion801@gmail.com</a></li>
+            <li><a href="https://borobhairion.github.io/photons--/" title="Photography Website" target="_blank" rel="noopener" data-cursor="open">Photography/Borobhairion</a></li>
+            <li>Bashundhara R/A, Dhaka</li>
+            <li>LINKEDIN: <a href="https://linkedin.com/in/rionkhan801" target="_blank" rel="noopener" data-cursor="open">linkedin.com/in/rionkhan801</a></li>
+            <li>GITHUB: <a href="https://github.com/BorobhaiRion" target="_blank" rel="noopener" data-cursor="open">github.com/BorobhaiRion</a></li>
+        </ul>
+    </main>
+
+    <%- await include('partials/footer') %>

@@ -1,0 +1,53 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# ---------------------------------------------------------------------------
+# Routing.
+#
+# "/" is served from dist/index.html (Netlify's default), so the home page is
+# always the first thing that opens. The aliases below all resolve to it.
+#
+# dist/404.html is picked up automatically for any URL that does not match a
+# file or a rule, so unknown URLs show the custom not-found page with a real
+# 404 status — no catch-all rule is needed (and a forced catch-all would risk
+# shadowing the home page).
+# ---------------------------------------------------------------------------
+
+# dist/index.html exists, so this rule has to be forced to take effect.
+# It redirects to "/", which matches no rule, so there is no loop.
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 301
+
+[[redirects]]
+  from = "/works"
+  to = "/works.html"
+  status = 301
+
+[[redirects]]
+  from = "/linefollower"
+  to = "/linefollower.html"
+  status = 301
+
+[[redirects]]
+  from = "/loading"
+  to = "/loading.html"
+  status = 301
