@@ -1,5 +1,8 @@
 [build]
-  command = "npm run build"
+  # node_modules is not committed. Netlify normally installs dependencies before
+  # this runs; if they are missing (e.g. a build of the raw working tree), do a
+  # clean install from package-lock.json first.
+  command = "(test -x node_modules/.bin/tailwindcss || npm ci --no-audit --no-fund) && npm run build"
   publish = "dist"
 
 # ---------------------------------------------------------------------------
