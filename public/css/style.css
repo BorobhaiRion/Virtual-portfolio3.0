@@ -420,6 +420,138 @@ code {
 }
 
 /* --------------------------------------------------------------------------
+   Download CV call to action (home page, foot of the column)
+
+   The one deliberately loud block on the page. It is built from the same
+   parts as everything else — a border, the accent colour and a hard offset
+   shadow — so it still reads as 1996, just with the volume up: the panel gets
+   an accent slab behind it, the button presses into its own shadow and a band
+   of light sweeps across it while it idles.
+   -------------------------------------------------------------------------- */
+
+.cv-cta {
+    margin: 1.6rem 0 0;
+    padding: 1.2rem 1.2rem 1.3rem;
+    border: 2px solid var(--border);
+    background: var(--panel);
+    box-shadow: 8px 8px 0 var(--accent);
+    text-align: center;
+}
+
+.cv-cta h2 {
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+}
+
+.cv-note {
+    margin: 0.4rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+}
+
+/* The file name itself, as a terminal would print it. */
+.cv-file {
+    margin-top: 0.7rem;
+    color: var(--text);
+    opacity: 0.75;
+}
+
+.cv-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    max-width: 100%;
+    margin-top: 0.6rem;
+    padding: 0.95rem 1.7rem;
+    border: 2px solid var(--accent);
+    background: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 5px 5px 0 var(--text);
+    overflow: hidden;
+    transition: transform 0.14s ease, box-shadow 0.14s ease,
+        background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Beats the visited/link colours the 1996 stylesheet sets on every anchor. */
+a.cv-btn,
+a.cv-btn:visited,
+a.cv-btn:hover,
+a.cv-btn:focus,
+a.cv-btn:active {
+    color: var(--accent-contrast);
+}
+
+/* Band of light that sweeps across the button while it idles. */
+.cv-btn::before {
+    content: "";
+    position: absolute;
+    top: -30%;
+    bottom: -30%;
+    left: 0;
+    width: 45%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    transform: translateX(-170%) skewX(-18deg);
+    animation: cv-sweep 3.6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes cv-sweep {
+    0%,
+    55% {
+        transform: translateX(-170%) skewX(-18deg);
+    }
+
+    100% {
+        transform: translateX(420%) skewX(-18deg);
+    }
+}
+
+/* Hover/focus presses the button down into its shadow; a click goes the
+   whole way, which is the 1996 "hard button" feel. */
+a.cv-btn:hover,
+a.cv-btn:focus-visible {
+    background: var(--accent);
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 var(--text);
+}
+
+a.cv-btn:active {
+    transform: translate(5px, 5px);
+    box-shadow: 0 0 0 var(--text);
+}
+
+.cv-btn-icon {
+    flex: none;
+    width: 1.15em;
+    height: 1.15em;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: square;
+}
+
+a.cv-btn:hover .cv-btn-icon,
+a.cv-btn:focus-visible .cv-btn-icon {
+    animation: cv-bob 0.7s ease-in-out infinite;
+}
+
+@keyframes cv-bob {
+    50% {
+        transform: translateY(3px);
+    }
+}
+
+/* --------------------------------------------------------------------------
    Footer: "Last updated" line + visitor counter
    -------------------------------------------------------------------------- */
 
@@ -754,6 +886,19 @@ code {
 
     pre {
         font-size: 0.75rem;
+    }
+
+    /* Keep the block loud but narrow enough to never push the column wide. */
+    .cv-cta {
+        padding: 1rem 0.8rem 1.1rem;
+        box-shadow: 5px 5px 0 var(--accent);
+    }
+
+    .cv-btn {
+        gap: 0.55rem;
+        padding: 0.85rem 1.15rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.1em;
     }
 }
 

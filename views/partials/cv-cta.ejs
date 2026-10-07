@@ -1,0 +1,20 @@
+<%# "Download CV" call to action — the loud block at the foot of a page.
+
+     Pass a `heading` (and optionally a `note`) from the including page, the
+     same way partials/head takes its title. The PDF is served straight out of
+     public/, so the same link works on the dev server and in the static build. %>
+<section class="cv-cta reveal" aria-labelledby="cv-heading">
+    <h2 id="cv-heading" data-scramble><%= typeof heading !== 'undefined' ? heading : 'Want the short version?' %></h2>
+    <p class="cv-note"><%= typeof note !== 'undefined' ? note : 'Education, experience, skills and references — as a single file.' %></p>
+
+    <a class="cv-btn" href="/Foize_Khan_Rion_CV.pdf" download="Foize_Khan_Rion_CV.pdf" data-cursor="save">
+        <svg class="cv-btn-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M12 3v10"></path>
+            <path d="M7.5 8.5 12 13l4.5-4.5"></path>
+            <path d="M4 17v3h16v-3"></path>
+        </svg>
+        <span class="cv-btn-text">Download CV</span>
+    </a>
+
+    <p class="cv-note cv-file">Foize_Khan_Rion_CV.pdf</p>
+</section>
